@@ -50,22 +50,27 @@
 }
 .min-max{
   display: flex;
-  margin-left: 130px;
+  margin-left: 64px;
   margin-top: 30px;
   padding: ;
 }
-.min-max-box {
-  border: solid 1px rgb(141,141,141);
-  width: 145px;
+.min-box, .max-box {
+  border: solid 1px #6E6E6E;
+  width: 140px;
+  height: 29px;
+
 }
 .update-button {
   border-radius: 25px;
   background-color: #6E6E6E;
   color: #FFFFFF;
-  width: 145px; 
+  width: 140px;
   font-size: 17px;
-  font-weight:bold;
-  height: 29px;
+  font-weight: bold;
+  height: 31px;
+  margin-left: 15px;
+  margin-top: 21px;
+}
 }
 .range-left {
   margin-left: 130px;
@@ -73,17 +78,42 @@
 }.guess-box {
   margin-left: 130px;
   margin-top: 30px;
+
 }
 .guess-box1 {
-  width: 400px;
+  width: 450px;
   height: 55px;
   border: solid 1px rgb(141,141,141);
 }
 .submit-button {
   margin-left: 130px;
   margin-top: 30px;
+  margin-bottom: 20px;
+  border-radius: 25px;
+  background-color: #6E6E6E;
+  color: #FFFFFF;
+  width: 470px; 
+  font-size: 17px;
+  font-weight:bold;
+  height: 29px;
 }
-.clear-reset-buttons {
-  margin-left: 130px;
-  margin-top: 30px;
+
+ .clear-button, .reset-button {
+
+  border-radius: 25px;
+  background-color: #6E6E6E;
+  color: #FFFFFF;
+  width: 175px; 
+  font-size: 17px;
+  font-weight:bold;
+  height: 29px;
 }
+
+.clear-reset-buttons{
+
+  margin-left: 150px;
+
+}
+
+
+
