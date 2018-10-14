@@ -52,18 +52,26 @@ if (userGuess < correctNumber) {
     resetButton.disabled = false;
     correctNumber = randomNumber(max+ 10, min - 10);
     console.log(correctNumber);
-    minNum.innerText = min -10;
-    maxNum.innerText = max + 10;
-
-
-    
+    // minNum.innerText = min -10;
+    // maxNum.innerText = max + 10;
+    minNum.innerText = parseInt(minNum.innerText) - 10;
+    maxNum.innerText = parseInt(maxNum.innerText) + 10;
+    // setMinNum();
 
 
 
 }
-  if ( userGuess < min || userGuess > max) {
-   highLow.innerText = 'Sorry, guess is out of range...'
- }
+
+// function getMinNum(){
+//   return parseInt(document.querySelector(".min-num").innerText);
+// }
+// function setMinNum(){
+//   var tempNum = parseInt(document.querySelector(".min-num").innerText);
+//   document.querySelector(".min-num").innerText = tempNum -10;
+// }
+ //  if ( userGuess < min || userGuess > max) {
+ //   highLow.innerText = 'Sorry, guess is out of range...'
+ // }
 
   if (guessBox.value === "") {
    errorMesssage2.classList.remove('hidden2');
@@ -87,7 +95,7 @@ return Math.floor(Math.random()*(max-min+1) +min);
 }
 
 
-function updateRange(event){
+function updateRange(){
  min = parseInt(minBox.value);
  max = parseInt(maxBox.value);
 
