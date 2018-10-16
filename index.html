@@ -2,43 +2,75 @@
 <!DOCTYPE html>
 <html>
 <head>
- <link rel="stylesheet" type="text/css" href="styles.css">
- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
- <title>NUMBERGUESSER</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
+<title>NUMBERGUESSER</title>
 </head>
-<body>
- <section class = left-right>
-<section class="left-side">
- <h1 class="num-guess-left"><span class ="num-title">NUMBER</span>GUESSER</h1>
-<section class="min-max">
- <div>
-   <h4>Min Range</h4>
-   <input type="number" name="Min Range" class="min-box">
-   <p class="error-invalid hidden">error invalid</p>
-   <!-- put the error msg for too low here -->
- </div>
- <div>
-   <h4>Max Range</h4>
-   <input type="number" name="Max Range" class="max-box">
-</div>
- <button class="update-button">UPDATE</button>
-</section>
- <p class="range-left">The Current Range is <span class="min-num">1</span> to <span class='max-num'>100</span></p>
- <div class="guess-box">
-   <h4>Guess</h4>
-   <input type="number" name="Guess" class="guess-box1">
-   <p class="error-guess-box hidden2">ERROR!!</p>
- </div>
-   <button class="submit-button">SUBMIT GUESS</button>
- <div class="clear-reset-buttons">
-   <button class="clear-button">CLEAR</button>
-   <button class="reset-button">RESET</button>
- </div>
+   <body>
+      <div class = 'header'>
+         <h1 class="num-guess-left"><span class ="num-title">NUMBER</span>GUESSER</h1>
+         <p class = 'challenger-edition'>UlTIMATE CHALLENGER EDITION</p>
+      </div>
+         <section class = left-right>
+            <section class="left-side">
+               <div class = 'range-box'>
+                <h3 class = 'set-range-head'>Set Range</h3>    
+            <section class="min-max">
+               <div>
+                  <h4 class = "range-box-text">Min Range</h4>
+                  <input type="number" name="Min Range" class="min-box">
+                  <p class="error-invalid hidden">error invalid</p>
+               </div>
+               <div>
+                  <h4 class = "range-box-text max-range-text">Max Range</h4>
+                  <input type="number" name="Max Range" class="max-box">
+               </div>
+               <button class="update-button">UPDATE</button>
+            </section>
+         </div>
+         <div class="guess-box">
+       <p class="range-left">The Current Range is <span class="min-num">1</span> to <span class='max-num'>100</span></p>
+      <h4 class = 'challenger-text'>CHALLENGER 1</h4>
+    <div class = 'name-and-guess'>
+      <h5>Name</h5>
+      <input type="text" name="Guess" class="guess-box2 guess-name-box">
+      <h5>Guess</h5>
+      <input type="number" name="Guess" class="guess-box1">
+   </div>
+      <h4 class = 'challenger-text'>CHALLENGER 2</h4>
+      <div class = 'name-and-guess'>
+      <h5>Name</h5>
+         <input type="text" name="Guess" class="guess-box3 guess-name-box">
+      <h5>Guess</h5>
+      <input type="number" name="Guess" class="guess-box4">
+      </div>
+      <p class="error-guess-box hidden2">ERROR!!</p>
+    
+    <div class="clear-reset-buttons">
+         <button class="submit-button">SUBMIT GUESS</button>
+    <button class="reset-button">RESET</button>
+      <button class="clear-button">CLEAR</button>
+    </div>
+    </div>
+   <div class = 'score-box'>
+   <h3 class ='latest-score-title'>Latest Score</h3>
+    <section class = 'both-users-scores'>
+         <article class ="user-one-guess">
+          <h1 class="you-guessed-title">You Guessed:</h1>
+          <h1 class="user-guess">?</h1>
+          <h2 class="high-low">Sorry, that is too high</h2>
+         </article>
+          <article class ="user-two-guess">
+          <h1 class="you-guessed-title">You Guessed:</h1>
+          <h1 class="user-guess">?</h1>
+          <h2 class="high-low">Sorry, that is too high</h2>
+         </article>
+   </section>
+   </div>
+
+   </section>
 </section>
 <section class="right-side">
- <h1 class="you-guessed-title">You Guessed:</h1>
- <h1 class="user-guess">?</h1>
- <h2 class="high-low">Sorry, that is too high</h2>
 </section>
 </section>
  <script src="scripts.js"></script>
