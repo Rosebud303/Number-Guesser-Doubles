@@ -23,65 +23,40 @@ var min = 1;
 var max = 100;
 console.log(correctNumber);
 
-
 clearButton.disabled =true; 
 resetButton.disabled=true;
+// submitButton.disabled= true;
 
 function enableButtons(){
  if (guessBox.value === ''){
   clearButton.disabled = true;
+
  }else if (guessBox.value !== ''){
   clearButton.disabled = false; 
+
  }
-
 }
-
 
 function submitGuess() {
-// event.preventDefault();
-userGuessPlaceholder.innerText = guessBox.value;
-var userGuess = parseInt(guessBox.value);
-
-if (userGuess < correctNumber) {
-  highLow.innerText = "Sorry, that is too low!"
-} else if (userGuess > correctNumber) {
-  highLow.innerText = "Sorry, that is too high!"
-} else {
-  // console.log(userGuess);
-    highLow.innerText = "BOOM, you got it!"
-    resetButton.disabled = false;
-    correctNumber = randomNumber(max+ 10, min - 10);
-    console.log(correctNumber);
-    // minNum.innerText = min -10;
-    // maxNum.innerText = max + 10;
-    minNum.innerText = parseInt(minNum.innerText) - 10;
-    maxNum.innerText = parseInt(maxNum.innerText) + 10;
-    // setMinNum();
-
-
-
+ var userGuess = parseInt(guessBox.value);
+ if (!isNaN(userGuess)) {
+   userGuessPlaceholder.innerText = guessBox.value;
+   if (userGuess < correctNumber) {
+     highLow.innerText = "Sorry, that is too low!"
+   } else if (userGuess > correctNumber) {
+     highLow.innerText = "Sorry, that is too high!"
+   } else if (userGuess == correctNumber) {
+     highLow.innerText = "BOOM, you got it!"
+     resetButton.disabled = false;
+     correctNumber = randomNumber(max+ 10, min - 10);
+     console.log(correctNumber);
+     minNum.innerText = parseInt(minNum.innerText) - 10;
+     maxNum.innerText = parseInt(maxNum.innerText) + 10;
+   }
+ }
 }
 
-// function getMinNum(){
-//   return parseInt(document.querySelector(".min-num").innerText);
-// }
-// function setMinNum(){
-//   var tempNum = parseInt(document.querySelector(".min-num").innerText);
-//   document.querySelector(".min-num").innerText = tempNum -10;
-// }
- //  if ( userGuess < min || userGuess > max) {
- //   highLow.innerText = 'Sorry, guess is out of range...'
- // }
 
-  if (guessBox.value === "") {
-   errorMesssage2.classList.remove('hidden2');
-  }else if(guessBox.value !== "") {
-   errorMesssage2.classList.add('hidden2');
-  }
-
- guessBox.value = "";
- clearButton.disabled =true; 
-};
 
 function clearInputs(event) {
  guessBox.value = "";
@@ -127,5 +102,46 @@ maxNum.innerText = 100;
 minNum.innerText = 1;
 console.log(correctNumber);
 
+};
 
-}
+
+// function getMinNum(){
+//   return parseInt(document.querySelector(".min-num").innerText);
+// }
+// function setMinNum(){
+//   var tempNum = parseInt(document.querySelector(".min-num").innerText);
+//   document.querySelector(".min-num").innerText = tempNum -10;
+// }
+ //  if ( userGuess < min || userGuess > max) {
+ //   highLow.innerText = 'Sorry, guess is out of range...'
+ // }
+
+
+
+// function submitGuess() {
+// userGuessPlaceholder.innerText = guessBox.value;
+// var userGuess = parseInt(guessBox.value);
+
+// if (userGuess < correctNumber) {
+//   highLow.innerText = "Sorry, that is too low!"
+// } else if (userGuess > correctNumber) {
+//   highLow.innerText = "Sorry, that is too high!"
+// } else {
+  
+//     highLow.innerText = "BOOM, you got it!"
+//     resetButton.disabled = false;
+//     correctNumber = randomNumber(max+ 10, min - 10);
+//     console.log(correctNumber);
+//     minNum.innerText = parseInt(minNum.innerText) - 10;
+//     maxNum.innerText = parseInt(maxNum.innerText) + 10;
+//     // setMinNum();
+//   }
+//   if (guessBox.value === "") {
+//    errorMesssage2.classList.remove('hidden2');
+//   }else if(guessBox.value !== "") {
+//    errorMesssage2.classList.add('hidden2');
+//   }
+
+//  guessBox.value = "";
+//  clearButton.disabled =true; 
+// };
