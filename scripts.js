@@ -14,24 +14,28 @@
   var userGuessPlaceholder2    =    document.querySelector('.challenger-two-guess');
   var minNum                   =    document.querySelector('.min-num');
   var maxNum                   =    document.querySelector('.max-num');
-  var highLow                  =    document.querySelector('.challenger-one-rating');
-  var highLow2                 =    document.querySelector('.challenger-two-rating');
   var errorMesssage            =    document.querySelector('.hidden');
   var errorMesssage2           =    document.querySelector('.hidden2');
   var rightSide                =    document.querySelector('.right-side');
+ 
 
   submitButton.addEventListener('click', submitHandler)
   updateButton.addEventListener('click', updateRange)
   clearButton.addEventListener('click', clearInputs)
   resetButton.addEventListener('click', resetGame)
   playerOneGuess.addEventListener('keyup', enableButtons)
+ 
+  var deleteButton = document.querySelector('.delete-button');
+  rightSide.addEventListener('click', deleteCard);
+
+
   var correctNumber = randomNumber(100, 1);
   var min = 1;
   var max = 100;
   console.log(correctNumber);
   clearButton.disabled =true; 
   resetButton.disabled=true;
-  // submitButton.disabled= true;
+
   function enableButtons(){
    if (playerOneGuess.value === ''){
     clearButton.disabled = true;
@@ -39,13 +43,17 @@
     clearButton.disabled = false; 
   }
 }
+
 function submitHandler() {
   var userOneGuess = parseInt(playerOneGuess.value);
   var userTwoGuess = parseInt(playerTwoGuess.value)
-  submitAnswer(userOneGuess, playerNameOne.value);
-  submitAnswer(userTwoGuess, playerNameTwo.value);
+
+  submitAnswer(userOneGuess, playerNameOne.value, "one");
+  submitAnswer(userTwoGuess, playerNameTwo.value, "two");
+
   challengerOne.innerText = playerNameOne.value
   challengerTwo.innerText = playerNameTwo.value
+
   userGuessPlaceholder.innerText = playerOneGuess.value;
   userGuessPlaceholder2.innerText = playerTwoGuess.value;
 }
@@ -54,7 +62,7 @@ function clearInputs(event) {
  playerOneGuess.value = "";
  maxNum.value = "";
  minNum.value = "";
-}
+  }
 
 function randomNumber(max, min){
   return Math.floor(Math.random()*(max-min+1) +min);
@@ -65,7 +73,7 @@ function updateRange(){
    max = parseInt(maxBox.value);
    if (min > max) {
      errorMesssage.classList.remove('hidden');
-     highLow.innerText = 'Invalid Numbers'
+     // highLow.innerText = 'Invalid Numbers'
    } else if (min < max){
      minNum.innerText = min;
      maxNum.innerText = max;
@@ -73,7 +81,7 @@ function updateRange(){
      maxBox.value = "";
      correctNumber = randomNumber(max, min);
      errorMesssage.classList.add('hidden2');
-     highLow.innerText = 'Make a Guess'
+     // highLow.innerText = 'Make a Guess'
      console.log(correctNumber);
    }
    if (min || max === '') {
@@ -91,18 +99,23 @@ function resetGame(event) {
   console.log(correctNumber);
 };
 
-
-function submitAnswer(guess, currentPlayer) {
+function submitAnswer(guess, currentPlayer, playerNumber) {
   if (!isNaN(guess)) {
 
+    var feedback = document.querySelector(`.challenger-${playerNumber}-rating`);
+
    if (guess < correctNumber) {
-     highLow2.innerText = "Sorry, that is too low!"
+     feedback.innerText = "Sorry, that is too low!"
+   
 
    } else if (guess > correctNumber) {
-     highLow2.innerText = "Sorry, that is too high!"
+     feedback.innerText = "Sorry, that is too high!"
+   
 
    } else if (guess == correctNumber) {
-     highLow2.innerText = "BOOM, you got it!"
+     feedback.innerText = "BOOM, you got it!"
+ 
+
      appendCard(playerNameOne.value, playerNameTwo.value, currentPlayer);
      resetButton.disabled = false;
      correctNumber = randomNumber(max+ 10, min - 10);
@@ -113,25 +126,41 @@ function submitAnswer(guess, currentPlayer) {
  }
 }
 
-
 function appendCard(player1, player2, winner) {
 
   var cardHtml = 
   `<article class ='generated-card'>
     <div class="card-challenger-names">
       <h4>${player1}</h4>
-      <p>vs</p>
-      <h4>Challenger 2 Name</h4>
+      <p class = 'vs-symbol'>vs</p>
+      <h4>${player2}</h4>
     </div>
-    <h1>Challenger Place Holder</h1>
+    <h1 class ='winner-chicken-dinner'>${winner}</h1>
     <p>WINNER</p>
     <div>
-      <p>Guesses</p>
-      <p>minutes</p>
-      <p>X</p>
+      <button class = 'delete-button'>X</button>
     </div>
   </article>`;
   rightSide.innerHTML = rightSide.innerHTML + cardHtml;
 }
+
+function deleteCard(){
+ console.log(event)
+
+if (event.target.className === 'delete-button'){
+    event.target.parentElement.parentElement.remove()
+}
+
+}
+
+
+
+
+
+
+
+
+
+
 
   

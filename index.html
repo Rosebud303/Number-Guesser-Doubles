@@ -33,17 +33,26 @@
          <p class="range-left">The Current Range is <span class="min-num">1</span> to <span class='max-num'>100</span></p>
          <h4 class = 'challenger-text'>CHALLENGER 1</h4>
          <div class = 'name-and-guess'>
-            <h5>Name</h5>
+            <div>
+            <h5 class = 'range-box-name'>Name</h5>
             <input type="text" name="Guess" class="guess-box2 guess-name-box">
-            <h5>Guess</h5>
+            </div>
+         <div class = 'guess-and-range'>
+            <h5 class = 'range-box-guess'>Guess</h5>
             <input type="number" name="Guess" class="guess-box1">
+         </div>
          </div>
          <h4 class = 'challenger-text'>CHALLENGER 2</h4>
          <div class = 'name-and-guess'>
-            <h5>Name</h5>
+           
+         <div>
+            <h5 class = 'range-box-name'>Name</h5>
             <input type="text" name="Guess" class="guess-box3 guess-name-box">
-            <h5>Guess</h5>
+         </div>
+         <div class = 'guess-and-range'>
+            <h5 class = 'range-box-guess'>Guess</h5>
             <input type="number" name="Guess" class="guess-box4">
+          </div>  
          </div>
          <p class="error-guess-box hidden2">ERROR!!</p>
 
@@ -53,7 +62,7 @@
             <button class="clear-button">CLEAR</button>
          </div>
       </div>
-      <div class = 'score-box'>
+      <article class = 'score-box'>
          <h3 class ='latest-score-title'>Latest Score</h3>
          <section class = 'both-users-scores'>
             <article class ="user-one-guess">
@@ -67,10 +76,10 @@
                <h2 class="challenger-two-rating high-low">Make a guess!</h2>
             </article>
          </section>
-      </div>
+      </article>
    </section>
    <section class="right-side">
-      <article class ='generated-card'>
+     <!--  <article class ='generated-card'>
          <div class="card-challenger-names">
             <h4>Challenger 1 Name</h4>
             <p>vs</p>
@@ -81,9 +90,9 @@
          <div>
             <p>Guesses</p>
             <p>minutes</p>
-            <p>X</p>
+            <button class = 'delete-button'>X</button>
          </div>
-      </article>
+      </article> -->
    </section>
 </section>
 <script src="scripts.js"></script>
