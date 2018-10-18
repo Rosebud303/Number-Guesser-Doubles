@@ -10,4 +10,9 @@ Duy and Adam
 
 
 ## Original Project
+![Screenshot](Prompt.png)
+
+## Personal Number Counter
 ![Screenshot](Original.png)
+
+
